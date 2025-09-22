@@ -8,7 +8,8 @@ output:
   xaringan::moon_reader:
     css: [msu-default.css, msu-metropolis.css, metropolis-fonts]
     lib_dir: libs
-    self_contained: true
+    self_contained: yes
+    mode: selfcontained
     nature:
       highlightStyle: github
       highlightLines: true
@@ -158,18 +159,24 @@ tinytex::install_tinytex()
 ---
 # R Markdown: Creating a New .Rmd File
 
-<img src="images/rmd_add.png" width = "100%"/> 
+```{r echo = FALSE}
+knitr::include_graphics("images/rmd_add.png")
+```
+
 
 ---
 # R Markdown: Creating a New .Rmd File
 
-<img src="images/rmd_add2.png" width = "100%"/> 
+```{r echo = FALSE}
+knitr::include_graphics("images/rmd_add2.png")
+```
 
 ---
 # R Markdown: Creating a New .Rmd File
 
-<img src="images/rmd_add3.png" width = "120%"/> 
-
+```{r echo = FALSE}
+knitr::include_graphics("images/rmd_add3.png")
+```
 
 ---
 # R Markdown Components
@@ -370,8 +377,9 @@ Add a chunk with
 ---
 # Rmd: Code Chunks
 
-
-<img src="images/chunk.png" width = "120%"/> 
+```{r, echo = F, out.width = "120%"}
+knitr::include_graphics("images/chunk.png")
+```
 
 
 
@@ -393,8 +401,9 @@ Some commonly-used options include:
   * `eval = FALSE` will display code without evaluating it
   * `results = 'hide'` runs code but hides output from the final document 
   
-<img src="images/chunk_opts.png" width = "80%"/> 
-
+```{r, echo = F, out.width = "80%"}
+knitr::include_graphics("images/chunk_opts.png")
+```
     
 ---
 # Code Chunk Options
@@ -408,14 +417,17 @@ You can also .hi-blue[change the color] of code chunks and/or output in the rend
 
 .pull-left[
 .hi-slate[default] 
-
-<img src="images/class_def.png" width = "80%"/> 
+```{r, echo = F, out.width = "80%"}
+knitr::include_graphics("images/class_def.png")
+```
 ]
 
 .pull-right[
 .hi-slate[`bg-primary`] 
 
-<img src="images/class_primary.png" width = "80%"/> 
+```{r, echo = F, out.width = "80%"}
+knitr::include_graphics("images/class_primary.png")
+```
 ]
 
 .footnote[<sup>1</sup> We'll chat more about this when we get to web scraping, but what's actually happening here is that we're harnessing some built-in CSS classes to change the backgrounds. This also means that, using CSS, you can define custom classes and format things however you'd like.]
@@ -433,14 +445,18 @@ You can also .hi-blue[change the color] of code chunks and/or output in the rend
 .pull-left[
 .hi-slate[`bg-success`] 
 
-<img src="images/class_success.png" width = "80%"/> 
+```{r, echo = F, out.width = "80%"}
+knitr::include_graphics("images/class_success.png")
+```
 ]
 
 
 .pull-right[
 .hi-slate[`bg-info`] 
 
-<img src="images/class_info.png" width = "80%"/> 
+```{r, echo = F, out.width = "80%"}
+knitr::include_graphics("images/class_info.png")
+```
 ]
 
 .footnote[<sup>1</sup> We'll chat more about this when we get to web scraping, but what's actually happening here is that we're harnessing some built-in CSS classes to change the backgrounds. This also means that, using CSS, you can define custom classes and format things however you'd like.]
@@ -456,8 +472,9 @@ You can also .hi-blue[change the color] of code chunks and/or output in the rend
 .pull-left[
 .hi-slate[`bg-warning`]
 
-<img src="images/class_warning.png" width = "80%"/> 
-
+```{r, echo = F, out.width = "80%"}
+knitr::include_graphics("images/class_warning.png")
+```
 ]
 
 
@@ -465,8 +482,9 @@ You can also .hi-blue[change the color] of code chunks and/or output in the rend
 .pull-right[
 .hi-slate[`bg-danger`]
 
-<img src="images/class_danger.png" width = "80%"/> 
-
+```{r, echo = F, out.width = "80%"}
+knitr::include_graphics("images/class_danger.png")
+```
 ]
 
 .footnote[<sup>1</sup> We'll chat more about this when we get to web scraping, but what's actually happening here is that we're harnessing some built-in CSS classes to change the backgrounds. This also means that, using CSS, you can define custom classes and format things however you'd like.]
@@ -507,7 +525,9 @@ RStudio automatically builds the R Markdown file from a template, which begins w
 ]
 .pull-right[
 
-<img src="images/header.png" width = "120%"/> 
+```{r, echo = F, out.width = "120%"}
+knitr::include_graphics("images/header.png")
+```
 
 .font80[1: See [.hi-orange[CH 3 of "R Markdown: The Definitive Guide" for more on how to customize output formats]](https://bookdown.org/yihui/rmarkdown/documents.html)]
 
@@ -522,7 +542,9 @@ RStudio automatically builds the R Markdown file from a template, which begins w
 
 By default, RStudio adds a .hi-blue[setup] code chunk next.
 
-<img src="images/r_setup.png" width = "120%"/> 
+```{r, echo = F, out.width = "120%"}
+knitr::include_graphics("images/r_setup.png")
+```
 
   * Can set global options
   * Useful as your preamble
@@ -542,13 +564,15 @@ From here on you can build the report/notebook as needed for the task.
 
 When you are ready to compile your final document, use the `Knit` button or `Ctrl/Cmd + Shift + K`
 
-<img src="images/rmd_knit.png" width = "100%"/> 
-
+```{r, echo = F, out.width = "100%"}
+knitr::include_graphics("images/rmd_knit.png")
+```
 ---
 # R Markdown: Knit to Compile Output (HTML, PDF)
 
-<img src="images/rmd_knit2.png" width = "120%"/> 
-
+```{r, echo = F, out.width = "120%"}
+knitr::include_graphics("images/rmd_knit2.png")
+```
 
 ---
 class: inverse, middle
@@ -588,7 +612,9 @@ name: control
 ---
 # Why Use Version Control
 .center[
-<img src = "images/phd052810s.gif"  height = "100%"/> 
+```{r, echo = F, out.width = "100%"}
+knitr::include_graphics("images/phd052810s.gif")
+```
 ]
 ---
 # Goals of Version Control
@@ -720,7 +746,9 @@ we could just follow the below workflow:
 <br>
 
 .center[
-<img src="images/workflow1.png" height=100%>
+```{r, echo = F, out.width = "100%"}
+knitr::include_graphics("images/workflow1.png")
+```
 ]
 
 Since we're collaborating with others/potentially across machines, we'll also add in a few more actions.
@@ -734,7 +762,9 @@ The first Git operation in the workflow is .hi-slate[Cloning]
 --
 
 .center[
-<img src="images/dolly.png" width="600">
+```{r, echo = F, out.height = "70%"}
+knitr::include_graphics("images/dolly.png")
+```
 ]
 
 ---
@@ -761,7 +791,9 @@ Let's start with the first approach. With GitHub Desktop installed/open, navigat
 
 
 .center[
-<img src="images/clone_course_repo_1.png" height=100%>
+```{r, echo = F, out.height = "100%"}
+knitr::include_graphics("images/clone_course_repo_1.png")
+```
 ]
 
 
@@ -774,7 +806,9 @@ Click the green .hi-medgrn[Code] button and then  "Open with GitHub Desktop"
 
 
 .center[
-<img src="images/clone_course_repo_2.png" height=100%>
+```{r, echo = F, out.height = "100%"}
+knitr::include_graphics("images/clone_course_repo_2.png")
+```
 ]
 
 
@@ -788,7 +822,9 @@ Next, choose where you want the local copy of the repo file's saved and hit .hi-
 
 
 .center[
-<img src="images/clone_course_repo_3.png" width = "850">
+```{r, echo = F, out.width = "850"}
+knitr::include_graphics("images/clone_course_repo_3.png")
+```
 ]
 
 ---
@@ -798,7 +834,9 @@ Next, choose where you want the local copy of the repo file's saved and hit .hi-
 Wait a little bit, and navigate to the local path you gave it. Voila!
 
 .center[
-<img src="images/clone_course_repo_4.png" height=100%>
+```{r, echo = F, out.height= "100%"}
+knitr::include_graphics("images/clone_course_repo_3.png")
+```
 ]
 
 
@@ -818,39 +856,51 @@ Start by creating your own repo on GitHub — call it "test" — and clone it, t
 ---
 # Create a Repository on GitHub (Repo)
 
-<img src="images/create_repo1.png" height=100%>
+```{r, echo = F, out.height= "100%"}
+knitr::include_graphics("images/create_repo1.png")
+```
 
 ---
 # Create a Repository on GitHub (Repo)
 
 .center[
-<img src="images/create_repo2.png" width= "750">
+```{r, echo = F, out.width= "750"}
+knitr::include_graphics("images/create_repo2.png")
+```
 ]
 ---
 # Create a Repository on GitHub (Repo)
 
 .center[
-<img src="images/create_repo3.png" width= "850">
+```{r, echo = F, out.width= "850"}
+knitr::include_graphics("images/create_repo3.png")
+```
 ]
 
 ---
 #  Create a Repository on GitHub (Repo)
 .center[
-<img src="images/create_repo4.png" height=100%>
+```{r, echo = F, out.width= "100%"}
+knitr::include_graphics("images/create_repo4.png")
+```
 ]
 
 ---
 # Clone a Repository from GitHub (HTTPS)
 
 .center[
-<img src="images/create_repo5.png" height=100%>
+```{r, echo = F, out.width= "100%"}
+knitr::include_graphics("images/create_repo5.png")
+```
 ]
 
 ---
 # Clone a Repository from GitHub (HTTPS)
 
 .center[
-<img src="images/create_repo6.png" height=100%>
+```{r, echo = F, out.width= "100%"}
+knitr::include_graphics("images/create_repo6.png")
+```
 ]
 
 ---
@@ -861,7 +911,9 @@ Start by creating your own repo on GitHub — call it "test" — and clone it, t
 <br>
 
 .center[
-<img src="images/create_repo7.png" height=100%>
+```{r, echo = F, out.width= "100%"}
+knitr::include_graphics("images/create_repo7.png")
+```
 ]
 
 ---
@@ -873,13 +925,17 @@ Open up the README file. Add some text and save the README.
 
 .pull-left[
 .center[
-<img src="images/edit_readme_1.png" height=100%>
+```{r, echo = F, out.width= "100%"}
+knitr::include_graphics("images/edit_readme_1.png")
+```
 ]
 ]
 
 .pull-right[
 .center[
-<img src="images/edit_readme_2.png" height=100%>
+```{r, echo = F, out.width= "100%"}
+knitr::include_graphics("images/edit_readme_2.png")
+```
 ]
 ]
 
@@ -891,7 +947,9 @@ Open up Github Desktop. Do you see any changes?
 
 
 .center[
-<img src="images/stage_desktop.png" height=100%>
+```{r, echo = F, out.width= "100%"}
+knitr::include_graphics("images/stage_desktop.png")
+```
 ]
 
 
@@ -904,7 +962,9 @@ Github Desktop detects local changes and automatically .hi-slate[stages] those c
 * Tells Git that you edited the `README.md` file and documents *how* it changed from the upstream repo version
 
 .center[
-<img src="images/stage_desktop.png" width="100%">
+```{r, echo = F, out.width= "100%"}
+knitr::include_graphics("images/stage_desktop.png")
+```
 ]
 
 ---
@@ -915,13 +975,17 @@ For now, these changes are .hi-medgrn[local to our own repo copy].
 .pull-left[
 .center[
 .hi-slate[Local System]
-<img src="images/edit_readme_2.png" height=100%>
+```{r, echo = F, out.width= "100%"}
+knitr::include_graphics("images/edit_readme_2.png")
+```
 ]
 ]
 .pull-right[
 .center[
 .hi-slate[GitHub]
-<img src="images/edit_readme_3.png" height=100%>
+```{r, echo = F, out.width= "100%"}
+knitr::include_graphics("images/edit_readme_3.png")
+```
 ]
 ]
 
@@ -942,7 +1006,9 @@ Now we need to .hi-slate[Commit:] tell Git that, yes, you are sure these staged 
 To .hi-slate[commit]  in GitHub Desktop, we need to first give our commit a name and a description (bottom-left):
 
 .center[
-<img src="images/commit_desktop.png" width="85%">
+```{r, echo = F, out.width= "85%"}
+knitr::include_graphics("images/commit_desktop.png")
+```
 ]
 
 and then hit .hi-slate[Commit].
@@ -956,7 +1022,9 @@ Next we need to .hi-slate[Push:] send the local file changes/additions to update
 In the upper-right corner you should now see the option to .hi-slate[Push origin]:
 
 .center[
-<img src="images/push_desktop_1.png" height=100%>
+```{r, echo = F, out.width= "100%"}
+knitr::include_graphics("images/push_desktop_1.png")
+```
 ]
 ]
 
@@ -967,7 +1035,9 @@ In the upper-right corner you should now see the option to .hi-slate[Push origin
 Click it and wait. That's it!
 
 .center[
-<img src="images/push_desktop_2.png" height=100%>
+```{r, echo = F, out.width= "100%"}
+knitr::include_graphics("images/push_desktop_2.png")
+```
 ]
 
 
@@ -975,7 +1045,9 @@ Click it and wait. That's it!
 # Changes Now Visible on GitHub
 
 .center[
-<img src="images/push_desktop_3.png" height=100%>
+```{r, echo = F, out.width= "100%"}
+knitr::include_graphics("images/push_desktop_3.png")
+```
 ]
 
 
@@ -1015,21 +1087,27 @@ Aside: Always pull from the upstream repo *before* you push any changes. Serious
 To set up a possible pull, let's make some .hi-medgrn[upstream changes]. On Github, click on the plus symbol to .hi-slate[add a new file].
 
 .center[
-<img src="images/edit_github_0.png" height=100%>
+```{r, echo = F, out.width= "100%"}
+knitr::include_graphics("images/edit_github_0.png")
+```
 ]
 
 ---
 # Pull
 
 .center[
-<img src="images/edit_github_1.png" height=100%>
+```{r, echo = F, out.width= "100%"}
+knitr::include_graphics("images/edit_github_1.png")
+```
 ]
 
 ---
 # Pull
 
 .center[
-<img src="images/edit_github_2.png" height=100%>
+```{r, echo = F, out.width= "100%"}
+knitr::include_graphics("images/edit_github_2.png")
+```
 ]
 
 ---
@@ -1038,7 +1116,9 @@ To set up a possible pull, let's make some .hi-medgrn[upstream changes]. On Gith
 
 
 .center[
-<img src="images/edit_github_3.png" height=100%>
+```{r, echo = F, out.width= "100%"}
+knitr::include_graphics("images/edit_github_3.png")
+```
 ]
 
 ---
@@ -1049,7 +1129,9 @@ Flip back over to GitHub Desktop. One of two things may have happened.
 1. Your GitHub Desktop already detected the upstream changes
 
 .center[
-<img src="images/pull_desktop_1.png" height=100%>
+```{r, echo = F, out.width= "100%"}
+knitr::include_graphics("images/pull_desktop_1.png")
+```
 ]
 
 If you just see .hi-slate[fetch origin], click it to refresh and retrieve the changes.
@@ -1062,7 +1144,9 @@ Click the .hi-slate[pull origin] button to add the new file to your local clone
 * Same thing would have happened if someone had modified existing files
 
 .center[
-<img src="images/pull_desktop_2.png" height=100%>
+```{r, echo = F, out.width= "100%"}
+knitr::include_graphics("images/pull_desktop_2.png")
+```
 ]
 
 
@@ -1153,15 +1237,18 @@ If you typeset using LaTeX, [.hi-orange[Overleaf]](https://www.overleaf.com/) st
   
 
 .more-left[
-<img src="images/overleaf.png" width = "120%"/> 
-
+```{r, echo = F, out.width= "120%"}
+knitr::include_graphics("images/overleaf.png")
+```
 ]
 
 ---
 # Connected Papers 
 
 .more-left[
-<img src="images/connectedpapers.png" width = "110%"/> 
+```{r, echo = F, out.width= "110%"}
+knitr::include_graphics("images/connectedpapers.png")
+```
 ]
 .less-right[
   * Graphical representation of paper networks
@@ -1230,28 +1317,35 @@ Open a new RStudio window and click .hi-slate["File > New Project"]
 # Version Control
 
 
-<img src="images/add_rstudio1.png" height=100%>
-
+```{r, echo = F, out.width= "100%"}
+knitr::include_graphics("images/add_rstudio1.png")
+```
 
 ---
 # Choose Git
 
-<img src="images/add_rstudio2.png" height=100%>
+```{r, echo = F, out.width= "100%"}
+knitr::include_graphics("images/add_rstudio2.png")
+```
 
 
 
 ---
 # Add Repo info
 
-<img src="images/add_rstudio3.png" height=100%>
+```{r, echo = F, out.width= "100%"}
+knitr::include_graphics("images/add_rstudio3.png")
+```
 
 
 
 ---
 # Add Repo into RStudio
 
-<img src="images/add_rstudio4.png" height=100%>
 
+```{r, echo = F, out.width= "100%"}
+knitr::include_graphics("images/add_rstudio4.png")
+```
 
 ---
 # Making Local Changes
@@ -1273,47 +1367,66 @@ Now open up the README file (see the "Files" tab in the bottom-right panel).
 ---
 # Stage and Commit
 .center[
-<img src="images/stage_commit1.png">
+```{r, echo = F, out.width= "100%"}
+knitr::include_graphics("images/stage_commit1.png")
+```
+
 ]
 ---
 # Stage and Commit
 .center[
-<img src="images/stage_commit2.png">
+```{r, echo = F, out.width= "100%"}
+knitr::include_graphics("images/stage_commit2.png")
+```
 ]
 ---
 # Stage and Commit
 .center[
-<img src="images/stage_commit3.png">
+```{r, echo = F, out.width= "100%"}
+knitr::include_graphics("images/stage_commit3.png")
+```
 ]
 ---
 # Pull
 .center[
-<img src="images/pull.png">
+```{r, echo = F, out.width= "100%"}
+knitr::include_graphics("images/pull.png")
+```
 ]
 ---
 # Push
 .center[
-<img src="images/push.png">
+```{r, echo = F, out.width= "100%"}
+knitr::include_graphics("images/push.png")
+```
 ]
 ---
 # Sign RStudio into Github
 .center[
-<img src="images/push_signin.png" height="550">
+```{r, echo = F, out.width= "100%"}
+knitr::include_graphics("images/push_signin.png")
+```
 ]
 ---
 # Sign RStudio into Github
 .center[
-<img src="images/push_signin2.png" height= "550">
+```{r, echo = F, out.width= "100%"}
+knitr::include_graphics("images/push_signin2.png")
+```
 ]
 ---
 # Changes Now Visible on Github
 .center[
-<img src="images/github_changes.png" height=100%>
+```{r, echo = F, out.width= "100%"}
+knitr::include_graphics("images/github_changes.png")
+```
 ]
 ---
 # Changes Now Visible Locally Too
 .center[
-<img src="images/local_changes.png" height=100%>
+```{r, echo = F, out.width= "100%"}
+knitr::include_graphics("images/local_changes.png")
+```
 ]
 
 
@@ -1362,7 +1475,9 @@ One reason I'm not focusing on the GitHub + RStudio integration is .hi-slate[cre
 
 For instance, do you get a password authentication error when trying to push to GitHub from RStudio?
 .center[
-<img src = "images/gitcred_rstudio.png" width = "700" /src>
+```{r, echo = F, out.width= "700"}
+knitr::include_graphics("images/gitcred_rstudio.png")
+```
 ]
 
 ---
@@ -1409,7 +1524,9 @@ usethis::create_github_token()
 ```
 
 .center[
-<img src = "images/gitcred_pat.png" width = "550" /src>
+```{r, echo = F, out.width= "550"}
+knitr::include_graphics("images/gitcred_pat.png")
+```
 ]
 
 ---
@@ -1432,7 +1549,9 @@ Once added, run `git_sitrep` one last time to verify.
 If all looks good, try pushing again!
 
 .center[
-<img src = "images/sitrep.png" width = "550" /src>
+```{r, echo = F, out.width= "550"}
+knitr::include_graphics("images/sitrep.png")
+```
 ]
 
 
