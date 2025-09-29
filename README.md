@@ -77,8 +77,8 @@ This work is licensed under a
  * Number Storage
  * Data Cleaning Checklist
 
- [**Lecture 5: Visualization**]()
- ([html]()) ([pdf]())
+ [**Lecture 5: Visualization**](https://github.com/afre-msu/AFRE-891-991-FS25/tree/84875d108862693c4e8714ec09a1a9dcb12ceaff/Lecture%20Slides/05-Visualization)
+ ([html](https://github.com/afre-msu/AFRE-891-991-FS25/blob/84875d108862693c4e8714ec09a1a9dcb12ceaff/Lecture%20Slides/05-Visualization/05-Visualization.html)) ([pdf](https://github.com/afre-msu/AFRE-891-991-FS25/blob/84875d108862693c4e8714ec09a1a9dcb12ceaff/Lecture%20Slides/05-Visualization/05-Visualization.pdf))
  
  * Principles of Data Visualization
  * Getting started with ggplot2
