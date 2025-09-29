@@ -88,16 +88,16 @@ This work is licensed under a
  * Themes
  * Extending ggplot2
 
- [**Lecture 6: Data Acquisition**]()
+ [**Lecture 6: Data Acquisition**](https://github.com/afre-msu/AFRE-891-991-FS25/tree/c759ce4f3234133e78f88019f1d25b90b722a7e1/Lecture%20Slides/06-Acquisition)
  
 
 
- Part 1  ([html]()) ([pdf]())
+ Part 1  ([html](https://github.com/afre-msu/AFRE-891-991-FS25/blob/c759ce4f3234133e78f88019f1d25b90b722a7e1/Lecture%20Slides/06-Acquisition/06-Acquisition-Static.html)) ([pdf](https://github.com/afre-msu/AFRE-891-991-FS25/blob/c759ce4f3234133e78f88019f1d25b90b722a7e1/Lecture%20Slides/06-Acquisition/06-Acquisition-Static.pdf))
  * Intro to Web Scraping
  * Scraping Static Websites
+ * Interacting with Static Websites
 
 Part 2  ([html]()) ([pdf]())
- * Interacting with Static Websites
  * Scraping Dynamic and Interactive Websites
 
 Part 3 ([html]()) ([pdf]())
