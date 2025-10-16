@@ -132,97 +132,140 @@ The main idea behind browser automation is this:
 
 ---
 
-# Application: EL Properties
+# Application: Traverse City Properties
 
-Let's work through an example of an interactive workflow for .hi-medgrn[property characteristics in East Lansing].
-  
-Suppose you want to obtain property information for a known address within East Lansing. The city has a handy [interactive map viewer](https://ingham-equalization.rsgis.msu.edu/) for tax assessment info.
+Let's work through an example of an interactive workflow for .hi-medgrn[property characteristics and tax info in Traverse City].
+
+Suppose, hypothetically, that you just came into a hefty inheritance. You've decided the best course of action is to blow it all on a nice new place up north in Traverse City.
+
+---
+
+# Application: Traverse City Properties
+
+After a little time scrolling real estate websites, you find a nice candidate:
+
 
 .center[
-```{r, echo=F, out.width="600"}
-include_graphics("images/el_eq.png")
+```{r, echo=F, out.width="800"}
+include_graphics("images/wrightwood.png")
 ```
 ]
 
 ---
 
-# Application: EL Properties
+# Application: Traverse City Properties
 
-Suppose we wanted to get information about the property at 549 Grove St. from the parcel map.
+While you can find a decent amount of property info on the real estate site's page, you want to make sure that this would be a "responsible" purchase by verifying the tax assessed value and school district.
 
-Doing this takes a couple steps:
-  1. Launch the [Map Viewer](https://ingham-equalization.rsgis.msu.edu/Viewer)
-  1. Click on "Search"
-  1. Type address components (number and street name) into the search bar, hit Go
-  1. Click on "Snap to Result" button to zoom in on the parcel
-  1. Click on "Toggle Table" to show information
+
+
+
+
+So, you navigate to the [Grand Traverse County Parcel Info Website](https://maps.grandtraverse.org/propertysearch.asp) to see if you can find the info.
+
+
+.center[
+```{r, echo=F, out.width="450"}
+include_graphics("images/gtc_pi.png")
+```
+]
+
 
 ---
 
-# Application: EL Properties
+# Application: Traverse City Properties
 
-*Unfortunately*, this doesn't have the property details we are interested in.
+After searching for the address, you find a little bit of information, including the .hi-medgrn[parcel number (APN)]. 
+
+
 
 .center[
 ```{r, echo=F, out.width="800"}
-include_graphics("images/el_eq2.png")
+include_graphics("images/gtc_pi_apn.png")
+```
+]
+
+You recall that Grand Traverse City has a [Parcel Map Viewer Website](https://grand-traverse.maps.arcgis.com/apps/webappviewer/index.html?id=1f27e1d5c8bc4d8ea91e000305a8b6eb) that has a search by APN feature and contains a lot of information - including school district and property tax values!
+
+---
+
+# Application: Traverse City Properties
+
+So, you navigate over to the [Parcel Map Viewer Website](https://grand-traverse.maps.arcgis.com/apps/webappviewer/index.html?id=1f27e1d5c8bc4d8ea91e000305a8b6eb):
+
+.center[
+```{r, echo=F, out.width="800"}
+include_graphics("images/gtc_pv.png")
 ```
   ]
 
 ---
 
-# Application: EL Properties
+# Application: Traverse City Properties
 
-*Fortunately*, there is a link to more information on a different site:
-
-
-.center[
-```{r, echo=F, out.width="800"}
-include_graphics("images/el_eq_link.png")
-```
-]
-
----
-
-# Application: EL Properties
-
-Which *unfortunately* [requires verification](https://bsaonline.com/SiteSearch/SiteSearchDetails?SearchFocus=Assessing&SearchCategory=Parcel+Number&SearchText=33-20-02-18-113-001&uid=383&PageIndex=1&ReferenceKey=33-20-02-18-113-001&ReferenceType=0&SortBy=&SearchOrigin=0&RecordKey=1%3d33-20-02-18-113-001&RecordKeyType=1%3d0&sitetransition=true)
-
-.center[
-```{r, echo=F, out.width="800"}
-include_graphics("images/bsa_verify.png")
-```
-]
-
-
----
-
-# Application: EL Properties
-
-Which *fortunately* has the characteristics we want once we get past this!
+After checking the "I agree" box and clicking "OK", you click the dropdown to change the search type to "Parcel by ID", input the APN, and hit search.
 
 
 .center[
 ```{r, echo=F, out.width="800"}
-include_graphics("images/bsa_info.png")
+include_graphics("images/gtc_pv_searchtype.png")
 ```
-]
+  ]
 
 
 ---
-# Workflow
 
-Let's now work through these steps in the context of an automated browser workflow:
-  1. Launch an automated browser session
-  1. Navigate to the Map Viewer
-  1. Search by street name + house number
-  1. Retrieve displayed info
-  1. Click detail link
-  1. Pass verification test
-  1. Scrape desired info
+# Application: Traverse City Properties
+
+This zooms you to the parcel shape *and* pulls up a ton of info, which includes the school district and current assessed/taxable home value!
+
+
+.center[
+```{r, echo=F, out.width="650"}
+include_graphics("images/gtc_pv_info.png")
+```
+  ]
 
 ---
-# 1. Launch Automated Session
+
+# Application: Traverse City Properties
+
+Taking a step back, what is the workflow to go *from* an address *to* the displayed info on the parcel viewer map app?
+
+1\. Find the address' APN using the Property Info Site
+--
+
+  * Plug in the street number
+--
+
+  * Type the street address and select the autocomplete option
+--
+
+  * Hit the search button
+--
+
+* Wait for the page to load, then copy the APN
+--
+
+
+2\. Find the property info for that APN on the Map Viewer
+--
+
+  * Check the "I agree" box and click OK button
+--
+
+  * Click the search dropdown and select "Parcel by ID"
+--
+
+  * Enter the parcel's APN and click search button
+--
+
+  * Copy the info that pops up in the window
+
+
+
+---
+# Launch Automated Session
 
 First, we need to .hi-medgrn[initiate an automated browser session] with `selenider_session()`.<sup>2</sup>
 
@@ -242,6 +285,7 @@ We've now created a .hi-blue[local session]
   * If started within a function, closes when the function is done running
 
 .footnote[<sup>2</sup> The full list of .hi-slate[selenider] functions can be found [here](https://ashbythorpe.github.io/selenider/reference/index.html)]
+
 ---
 # View the Session
 
@@ -259,27 +303,30 @@ session <- selenider_session(
   timeout = 10 # set timeout to 10 sec
 )
 ```
----
-# 2. Navigate to Map Viewer
 
-Let's start by navigating to the main [Tax Mapping Viewer page](https://ingham-equalization.rsgis.msu.edu/) and launch the viewer
+---
+# 1. Navigate to Property Info Site
+
+Let's start by navigating to the [Grand Traverse County Parcel Info Website](https://maps.grandtraverse.org/propertysearch.asp)
 
   * `open_url("URL")`
-  
+
+
 ```{r}
-  open_url("https://ingham-equalization.rsgis.msu.edu/")
+  open_url("https://maps.grandtraverse.org/propertysearch.asp")
 ```
 
 ---
-# 2. Navigate to Map Viewer
+# 1. Navigate to Property Info Site
+
 
 Check that we ended up at the desired url:
 
 ```{r}
 current_url()
 ```
----
 
+---
 #  Global Functions
 
 Other actions that apply globally to the entire page:
@@ -295,16 +342,7 @@ Other actions that apply globally to the entire page:
 | `execute_js_fn(), execute_js_expr()` | execute a JavaScript function |
 
 
----
-# 2. Navigate to Map Viewer
 
-Now we'll .hi-medgrn[click the "Start the Viewer" button] to launch the app.
-
-.hi-slate[Involved Steps:] 
-  * .hi-blue[Select] the button element by its CSS selector (`find_element()`)
-  * .hi-medgrn[Scroll to] the button (`elem_scroll_to()`)
-  * .hi-purple[Click] the button (`elem_click()`)
- 
 ---
 # Selection Functions
 
@@ -339,7 +377,7 @@ Hold up James, you're telling me that there are .hi-medgrn[six] different functi
 * `elem_find()` and `elem_filter()` let us search by .hi-purple[conditions]
   * i.e. has certain text, has an attribute with a certain value, is visible, has a certain number of elements
   * We'll see helper functions that will help us out with this in a bit
-  
+
 
 ---
 # Element Properties
@@ -364,93 +402,247 @@ And functions for obtaining element properties
 | `elem_hover(), elem_focus` | Hover over an element|
 | `elem_scroll_to()` | Scroll to an element |
 | `elem_select()` |Select an HTML element|
-| `elem_set_value(), elem__send_keys(), elem_clear_value()` | Set the value of an input |
+| `elem_set_value(), elem_send_keys(), elem_clear_value()` | Set the value of an input |
 | `elem_submit()` | Submit an element|
 | `keys` | list of special keys |
 
----
-# 2. Navigate to Map Viewer
 
-.pull-left[
+---
+# 1. Navigate the Property Info Site
+
+Now let's think about the steps and functions need to .hi-medgrn[enter the address information] and then click hi-medgrn[Search] to try and track down the APN.
+
+.hi-slate[Involved Steps:]
+  * .hi-blue[Find] the Address Number field (`find_element()`)
+  * .hi-red[Type] the address number into the field (`elem_send_keys()`)
+  * .hi-blue[Find] the Street Name field (`find_element()`)
+  * .hi-red[Type] the street name into the field (`elem_send_keys()`)
+  * .hi-purple[Click] the "Search" button (`find_element(), elem_click()`)
+
+---
+# Fill the Address Number Field
+
+.center[
+```{r, echo=F, out.width="700"}
+include_graphics("images/gtc_pi_addnum.png")
+```
+]
+
+--
+
 ```{r}
 session %>%
-  find_element("a.btn.btn-success") %>% # select the button by CSS Selector
+  find_element(id = "PROPADDNUM_id") %>%
+  elem_send_keys("16768")
+```
+
+
+---
+# Fill the Street Name Field
+
+.center[
+```{r, echo=F, out.width="500"}
+include_graphics("images/gtc_pi_street.png")
+```
+]
+
+--
+
+```{r}
+session %>%
+  find_element(id = "streetname_id") %>%
+  elem_send_keys("Wrightwood Terrace Drive")
+```
+
+---
+# Click the Search Button
+
+
+.center[
+```{r, echo=F, out.width="500"}
+include_graphics("images/gtc_pi_search.png")
+```
+]
+
+--
+
+```{r}
+session %>%
+  find_element(name = "submitme") %>%
+  elem_click()
+```
+
+
+---
+# Grab the APN
+
+.center[
+```{r, echo=F, out.width="500"}
+include_graphics("images/gtc_pi_apn_sel.png")
+```
+]
+
+--
+
+```{r}
+apn <- session %>%
+  find_element("a.PDBlistlink") %>%
   elem_text()
+apn
+```
+
+
+---
+# 2. Navigate Map Viewer
+
+Now we'll .hi-medgrn[click the "I agree to the above terms and conditions" checkbox] and then .hi-medgrn[click OK] to launch the app.
+
+.hi-slate[Involved Steps:]
+  * .hi-blue[Select] the checkbox element by its CSS selector (`find_element()`)
+  * .hi-medgrn[Scroll to] the box (`elem_scroll_to()`)
+  * .hi-purple[Click] the box (`elem_click()`)
+  * Repeat to select/scroll to/click the OK button
+
+
+---
+# 2. Navigate the Map Viewer
+
+
+Navigate to the main [Tax Mapping Viewer page](https://ingham-equalization.rsgis.msu.edu/) and launch the viewer
+
+
+```{r}
+  open_url("https://grand-traverse.maps.arcgis.com/apps/webappviewer/index.html?id=1f27e1d5c8bc4d8ea91e000305a8b6eb/")
+Sys.sleep(5)
+```
+
+---
+# 2. Navigate the Map Viewer
+
+Check that we ended up at the desired url:
+
+```{r}
+current_url()
+```
+---
+
+# Click the "I Agree" Check Box
+
+.pull-left.font90[
+```{r}
+session %>%
+  find_element("#jimu_dijit_CheckBox_0") %>%
+  elem_text()
+
+session %>%
+   find_element("div.checkbox")  %>%
+  elem_scroll_to() %>% # move the cursor to the button
+  elem_click()
 ```
 ]
 .pull-right[
-.center[
 ```{r, echo=F, out.width="500"}
-include_graphics("images/el_btn.png")
+include_graphics("images/gtc_pv_check.png")
 ```
 ]
-]
 
+---
+# Click the "OK" Button
+.pull-left.font90[
 ```{r}
+# Alternative approach: the footer contains both the check box and the OK button
 session %>%
-  find_element("a.btn.btn-success") %>%
+  find_element("div.footer") %>%
+  find_element("button")  %>%
   elem_scroll_to() %>% # move the cursor to the button
-  elem_click() # click the button
-current_url()
+  elem_click()
+Sys.sleep(5)
 ```
-
----
-# 3. Search by Address
-
-We next want to select + click on the "Search" tab button.
-
-To do this, we'll take advantage of .hi-medgrn[relative position] selector functions.
-
-| Function | Task |
-| -------  | -----|
-| `elem_parent()` | select the element that contains the current element |
-| `elem_ancestors()` | select every element containing the current element (children, grandchildren, etc.|
-| `elem_siblings()` | select every element which has the same parent as the current element (e.g. list) |
-| `elem_children()` | select every element connected to and directly below the current element |
-| `elem_descendants()` | select every element that is contained by the current element (any type of ancestor)|
-
-
----
-# 3. Search by Address
-
-Select + click on the "Search" tab button.
-
-.less-left[
-.center[
+]
+.pull-right[
 ```{r, echo=F, out.width="500"}
-include_graphics("images/el_eq_nav.png")
-```
-]]
-
-.more-right[
-```{r}
-session %>%
-  find_element("nav.info-panel") %>% # get full nav panel
-  elem_children()
+include_graphics("images/gtc_pv_check.png")
 ```
 ]
 
 ---
-# 3. Search by Address
-
-Select + click on the "Search" tab button.
-
-.less-left[
-.center[
+# Choose the "Parcel by ID" Search
 ```{r, echo=F, out.width="500"}
-include_graphics("images/el_eq_nav.png")
+include_graphics("images/gtc_pv_searchtype2.png")
 ```
-]]
 
-.more-right[
+```{r}
+# Show the search options
+session %>%
+  find_element("#esri_dijit_Search_0_menu_button > span.searchIcon.esri-icon-down-arrow") %>%
+  elem_click()
+
+# select the fourth list element
+session %>%
+  find_element("#esri_dijit_Search_0 > div > div.searchMenu.sourcesMenu > ul > li:nth-child(4)") %>%
+  elem_click()
+```
+
+
+
+
+
+---
+# Type in the APN
+
+```{r, echo=F, out.width="600"}
+include_graphics("images/gtc_pv_searchtype3.png")
+```
+
+```{r}
+# Show the search options
+session %>%
+  find_element("#esri_dijit_Search_0_input") %>%
+  elem_send_keys(apn)
+```
+
+
+
+---
+# Press Search Button
+
+```{r, echo=F, out.width="600"}
+include_graphics("images/gtc_pv_search_btn.png")
+```
+
+```{r}
+# Show the search options
+session %>%
+  find_element("div.searchBtn.searchSubmit.lastFocusNode") %>%
+  elem_click()
+Sys.sleep(5)
+```
+
+
+
+---
+# Get the Resulting Info Table
+
+Here the info window contains several HTML Tables: 
+
+```{r, echo=F, out.width="600"}
+include_graphics("images/gtc_pv_tab.png")
+```
+
+---
+# Get the Resulting Info Table
+
+Here the info window contains several HTML Tables: 
+
 ```{r}
 session %>%
-  find_element("ul.nav.nav-pills.nav-fill") %>% # just the button menu
-  elem_children()
+  find_elements("table") 
 ```
-]
+
+
 ---
-# 3. Search by Address
+# Get the Resulting Info Table
+
 
 We can also use .hi-medgrn[condition functions] to help with selection.
 .small[
@@ -464,8 +656,9 @@ We can also use .hi-medgrn[condition functions] to help with selection.
 | `is_present(), is_in_dom(), is_absent()` | does an element exist|
 | `is_visible(), is_displayed(), is_hidden(), is_invisible()` | is an element visible|
 ]
+
 ---
-# 3. Search by Address
+# Get the Resulting Info Table
 
 We can also use .hi-medgrn[condition functions] to help with selection.
   * `find_elements()` to yield a `selenider_element`
@@ -474,180 +667,37 @@ We can also use .hi-medgrn[condition functions] to help with selection.
   * `elem_click()` to click the selected button.
   
 ```{r}
-session %>%
-  find_element("ul.nav.nav-pills.nav-fill") %>% 
-  find_elements("li.nav-item") %>%
-  elem_find(has_text("Search")) %>%
-  elem_click()
+session %>% find_elements("table") %>%
+  elem_find(has_text("Site Address")) %>%
+  elem_text()
 ```
 
 ---
-# 3. Search by Address
+# Get the Resulting Info Table
 
-Checking to make sure we've activated the "Search" menu tab:
+.hi-slate[selenider] doesn't have built-in methods for reading HTML tables as data frames like we could in .hi-slate[rvest]...
+
+.. but we've already queried the website and had it populate the HTML with the info we need, so let's just pull the current HTML and use .hi-slate[rvest] methods as before!
 
 ```{r}
-session %>%
-  find_element("ul.nav.nav-pills.nav-fill") %>% 
-  elem_children()
-```
-See the `nav-link active` class on the second element with the "Search" text?
-
----
-# 3. Search by Address
-
-Now .hi-purple[enter text] into the desired fields
-
-
-.less-left[
-.center[
-```{r, echo=F, out.width="500"}
-include_graphics("images/el_eq_search.png")
-```
-]]
-
-.more-right[
-```{r}
-# Find house number field
-session %>%
-  find_element("div.service-accord") %>%
-  elem_children()
-```
-]
-
-
----
-# 3. Search by Address
-
-Now .hi-purple[enter text] into the desired fields
-
-
-.less-left[
-.center[
-```{r, echo=F, out.width="500"}
-include_graphics("images/el_eq_search.png")
-```
-]]
-
-.more-right[
-```{r}
-# Find house number field
-session %>%
-  find_element("div.__content") %>%
-  elem_children()
-```
-]
-
-
----
-# 3. Search by Address
-
-Now .hi-purple[enter text] into the desired fields and click "Go"
-
-.less-left[
-.center[
-```{r, echo=F, out.width="500"}
-include_graphics("images/el_eq_search.png")
-```
-]]
-
-.more-right[
-```{r}
-# set house number
-ss("div.service-input.form-group") %>%
-  elem_find(has_text("House")) %>%
-  find_element("input") %>% 
-  elem_set_value("549") 
-
-# set street name
-ss("div.service-input.form-group") %>%
-  elem_find(has_text("Street")) %>%
-  find_element("input")  %>% 
-  elem_set_value("Grove") 
-
-# Click button
-  ss("button.btn.btn-info") %>%
-    elem_find(has_text("Go")) %>%
-    elem_scroll_to() %>%
-    elem_click()
-```
-]
-
----
-# 4. Retrieve Displayed Info
-.center[
-```{r, echo=F, out.width="400"}
-include_graphics("images/eq_detail.png")
-```
-]
-
-```{r}
-session %>%
-  find_element("div.result-item") %>%
-  read_html() %>%
-  html_text2() %>%
-  str_replace_all("\n\n", "\n") %>%
-  str_split("\n")
+res_tab <- get_page_source() %>%
+  rvest::html_element("#esri_dijit__PopupRenderer_0 > div.mainSection > div:nth-child(3) > table:nth-child(2)")%>%
+  rvest::html_table()
 ```
 
 ---
-# 5. Follow Detail Link
+# Get the Resulting Info Table
 
-```{r}
-s("a.btn.btn-primary") %>%
- elem_attr("href") %>%
- open_url()
 
-current_url()
-```
----
-# 6. Pass Verification Test
-
-Here's where things break down a bit. 
-
---
-
-We can get our browser to click the "Verify" button
-```{r, eval = F}
- s("#GetUserValidationInfo") %>%
-     elem_scroll_to() %>%
-     elem_click()
-```
---
-
-But then we get... the dreaded captcha
-
-.center[
-```{r, echo=F, out.width="440"}
-include_graphics("images/captcha.png")
-```
-]
-
----
-# 6-7. Pass Verification Test + Scrape
-
-While I have yet to figure out a way around one of these image recognition captchas, here's a .hi-medgrn[semi-automated workaround:]
-  * Wait a set amount of time until an HTML element is present with `elem_expect()` and `is_present()`
-    * i.e. element from the results page after the captcha
-  * Manually complete the captcha (must be viewing the session!)
-  * Proceed to scrape what's on the page
-  
-```{r, eval = F}
-details <- ss("div.record-details-collapsible-box") %>%
-  elem_find(has_text("Building Information")) %>%
-  find_element("div.widthContainer table.detailTable") %>%
-  elem_expect(is_present, timeout = 60) %>% # wait up to 60 seconds to manually complete the captcha
-  read_html() %>%
-  html_table() %>%
-  as.data.frame()
-
-details
+```{r, eval = T}
+dplyr::select(res_tab, X1, X2) %>% 
+  dplyr::filter(str_detect(X1, "Mailing|School District|Value"))
 ```
 
 ---
 # Back to Boston Marathon
 
-Now that we've learned how to use dynamic scraping methods with .hi-slate[selenider], let's go back to our initial motivation: scraping [2024 Boston Marathon results](https://results.baa.org/2024/?pid=list&pidp=start)
+Now that we've learned how to use dynamic scraping methods with .hi-slate[selenider], let's go back to our initial motivation: scraping [2025 Boston Marathon results](https://results.baa.org/2025/?pid=list&pidp=start)
 
 ```{r, echo=F}
 include_graphics("images/boston_search.png")
@@ -656,19 +706,31 @@ include_graphics("images/boston_search.png")
 ---
 # Back to Boston Marathon
 
-.hi-medgrn[Workflow:]
-* Start a .hi-slate[selenider] session (or use the currently-open one)
-* Navigate to the [2024 Boston Marathon results search page](https://results.baa.org/2024/?pid=list&pidp=start)
-* Select the "Result Lists" form (`form_lists_default`)
-* Use the "Age Group" form to select the "18-39" option
-* Use the "Results/Page" dropdown to select 100
+Let's take a look at Conner Mantz's result. He broke the longstanding American marathon record of 2:05:38 at the 2025 Chicago Marathon (October 12) by almost a full minute! 
+
+How far off was he earlier this year at Boston? Let's check!
+
+```{r, echo=F, out.width = "700"}
+include_graphics("images/conner_mantz.webp")
+```
 
 ---
 # Back to Boston Marathon
 
-First, navigate to the [2024 Boston Marathon results search page](https://results.baa.org/2024/?pid=list&pidp=start)
+.hi-medgrn[Workflow:]
+* Start a .hi-slate[selenider] session (or use the currently-open one)
+* Navigate to the [2025 Boston Marathon results search page](https://results.baa.org/2025/?pid=list&pidp=start)
+* Select the "Result Lists" form (`form_lists_default`)
+* Use the "Age Group" form to select the "18-39" option
+* Use the "Results/Page" dropdown to select 100
+* Filter to Conner Mantz
+
+---
+# Back to Boston Marathon
+
+First, navigate to the [2025 Boston Marathon results search page](https://results.baa.org/2025/?pid=list&pidp=start)
 ```{r}
-open_url("https://results.baa.org/2024/?pid=start&pidp=start")
+open_url("https://results.baa.org/2025/?pid=start&pidp=start")
 ```
 
 And select the form using the `form_lists_default` name:
@@ -682,19 +744,36 @@ find_element(session, name = "form_lists_default")
 
 Within the form, we want to interact with a `select` element. To do this, use `elem_select()` on the desired option
   * Here, I used XPath syntax for the "18-39" option.
-  * SelectorGadget gives *another* XPath that works: `//*[@id="default-lists-age_class"]/option[2]`
-  
+  * SelectorGadget gives an XPath that works: `//*[@id="default-lists-age_class"]/option[2]`
+
 .more-left.font90[
 ```{r}
 find_element(session, name = "form_lists_default") %>%
   find_element(name = "search[age_class]") %>% # select the "Ag Group" dropdown
-  find_element(xpath = "//*/option[@value = \"1\"]") %>%
-  elem_select() 
+  find_element(xpath = "//*[@id=\"default-lists-age_class\"]/option[2]") %>%
+  elem_select()
 ```
 ]
 .less-right[
 ```{r, echo=F}
 include_graphics("images/select_age.png")
+```
+]
+
+---
+# Back to Boston Marathon
+
+We can verify that our selection worked by viewing the age class search element
+  * Note which option now shows as "selected"
+.more-left[
+```{r}
+find_element(session, name = "form_lists_default") %>%
+  find_element(name = "search[age_class]")
+```
+]
+.less-right[
+```{r, echo=F}
+include_graphics("images/select_age2.png")
 ```
 ]
 
@@ -709,7 +788,7 @@ Next, use the same approach with `elem_select()` to change the results per page 
 find_element(session, name = "form_lists_default") %>%
   find_element(name = "num_results") %>% # select the "Ag Group" dropdown
   find_element("#default-num_results > option:nth-child(3)")%>%
-  elem_select() 
+  elem_select()
 ```
 ]
 .less-right[
@@ -728,6 +807,7 @@ Finally, find and click the button!
 find_element(session, name = "form_lists_default") %>%
   find_element(name = "submit") %>%
   elem_click()
+Sys.sleep(5)
 ```
 
 ```{r, echo=F}
@@ -756,19 +836,17 @@ head(res_page1)
 **Challenge:** format the page 1 results as a dataframe, splitting into all 9 columns
   * Back to data wrangling/cleaning!
   * _hint:_ use `separate_wider_delim()`
-  
-  
+
+
 ---
 # Back to Boston Marathon
 
 **Challenge:** format the page 1 results as a dataframe, splitting into all 9 columns
   * Back to data wrangling/cleaning!
   * _hint:_ use `separate_wider_delim()`
-  
+
 ---
 # Back to Boston Marathon
-
-**A:**
 
 ```{r}
 page1_df <- data.frame(string = res_page1[2:length(res_page1)]) %>%
@@ -780,15 +858,38 @@ head(page1_df)
 ```
 
 ---
+# Conner Mantz at Boston Marathon
+
+And looking for Conner's result:
+
+```{r}
+dplyr::filter(page1_df, str_detect(name, "Mantz")) %>%
+  dplyr::select(name, place_overall, finish_net)
+```
+But that was national record worthy too! What's up?
+
+---
+# Boston is net downhill point-to-point
+
+It violates a World Athletic's rule:
+
+  > The overall decrease in elevation between start and finish shall not exceed an average of one meter per kilometer.
+  
+(It drops 140 meters over 42.16km)
+
+*But* it showed that he was very likely to beat it officially next time he ran on a record-legal course!
+
+
+---
 # Scraping Dynamic/Interactive Websites
 
 Methods for scraping dynamic or interactive websites opens up a huge range of possibilities.
-  * Iterative process of 
+  * Iterative process of
     * Interact with the website and its elements
     * Extract element contents as with static sites
   * Interactive workflows are generally more complex, so worth thinking about tradeoff between just brute forcing vs. coding up a scraping routine
-  
-Things will also get exponentially easier once we get through our programming lecture, which will allow you to automate repeated scraping tasks   
+
+Things will also get exponentially easier once we get through our programming lecture, which will allow you to automate repeated scraping tasks
 
 ---
 
