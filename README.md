@@ -94,13 +94,13 @@ This work is licensed under a
 
  Part 1  ([html](https://github.com/afre-msu/AFRE-891-991-FS25/blob/c759ce4f3234133e78f88019f1d25b90b722a7e1/Lecture%20Slides/06-Acquisition/06-Acquisition-Static.html)) ([pdf](https://github.com/afre-msu/AFRE-891-991-FS25/blob/c759ce4f3234133e78f88019f1d25b90b722a7e1/Lecture%20Slides/06-Acquisition/06-Acquisition-Static.pdf))
  * Intro to Web Scraping
- * Scraping Static Websites
+ * Scraping Static Server-Side Rendered Websites
  * Interacting with Static Websites
 
-Part 2  ([html]()) ([pdf]())
- * Scraping Dynamic and Interactive Websites
+Part 2  ([html](https://github.com/afre-msu/AFRE-891-991-FS25/blob/3270be54c883b5b33bcf07f40752377a7cebe995/Lecture%20Slides/06-Acquisition/06-Acquisition-Dynamic.html)) ([pdf](https://github.com/afre-msu/AFRE-891-991-FS25/blob/3270be54c883b5b33bcf07f40752377a7cebe995/Lecture%20Slides/06-Acquisition/06-Acquisition-Dynamic.pdf))
+ * Scraping Dynamic Client-Side Rendered Websites
 
-Part 3 ([html]()) ([pdf]())
+Part 3 ([html](https://github.com/afre-msu/AFRE-891-991-FS25/blob/3270be54c883b5b33bcf07f40752377a7cebe995/Lecture%20Slides/06-Acquisition/06-Acquisition-API.html)) ([pdf](https://github.com/afre-msu/AFRE-891-991-FS25/blob/3270be54c883b5b33bcf07f40752377a7cebe995/Lecture%20Slides/06-Acquisition/06-Acquisition-API.pdf))
  * APIS
  * Explicit API Endpoint, No Key
  * Explcity API Endpoint with Key
