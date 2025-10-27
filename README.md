@@ -108,7 +108,7 @@ Part 3 ([html](https://github.com/afre-msu/AFRE-891-991-FS25/blob/3270be54c883b5
  * Considerate Web Scraping
  
 [**Lecture 7: Programming**](https://github.com/afre-msu/AFRE-891-991-FS25/tree/cd26209dc2b0579f1f7689148bcf402271f266c7/Lecture%20Slides/07-Programming)
- ([html(https://github.com/afre-msu/AFRE-891-991-FS25/blob/cd26209dc2b0579f1f7689148bcf402271f266c7/Lecture%20Slides/07-Programming/07-Programming.html)]) ([pdf](https://github.com/afre-msu/AFRE-891-991-FS25/blob/cd26209dc2b0579f1f7689148bcf402271f266c7/Lecture%20Slides/07-Programming/07-Programming.pdf))
+([html](https://github.com/afre-msu/AFRE-891-991-FS25/blob/cd26209dc2b0579f1f7689148bcf402271f266c7/Lecture%20Slides/07-Programming/07-Programming.html))([pdf](https://github.com/afre-msu/AFRE-891-991-FS25/blob/cd26209dc2b0579f1f7689148bcf402271f266c7/Lecture%20Slides/07-Programming/07-Programming.pdf))
  
  * If/Else Statements
  * While Loops
