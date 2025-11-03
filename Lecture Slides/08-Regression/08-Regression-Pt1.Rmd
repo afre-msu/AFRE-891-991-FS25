@@ -174,7 +174,7 @@ wl_df <- read_csv("data/zip_PANEL_data.csv") %>%
 
 "Wetlands, Flooding, and the Clean Water Act" explores the benefits of wetlands in mitigating flood damage
 
-```{r, out.width = "550"}
+```{r, echo = F, out.width = "550"}
 knitr::include_graphics("images/wetlands.png")
 ```
 
@@ -189,7 +189,7 @@ knitr::include_graphics("images/wetlands.png")
 
 "Wetlands, Flooding, and the Clean Water Act" explores the benefits of wetlands in mitigating flood damage
 
-```{r, out.width = "550"}
+```{r, echo = F, out.width = "550"}
 knitr::include_graphics("images/wetlands.png")
 ```
 
@@ -357,6 +357,8 @@ Which now yields a dataframe, but we can still tidy things up to get simpler var
 tidy(floodreg_1b)
 ```
 
+
+
 ---
 
 # Fast Fixed Effects Regression
@@ -383,6 +385,53 @@ and confidence intervals with `confint()`
 ```{r}
 confint(floodreg_1b, level = 0.95) # get 95% Conf. Int.
 ```
+
+---
+
+# Plotting Regression Coefficients 
+
+`tidy()` and `confint()` make it easy to .hi-medgrn[plot regression output] rather than report in a table.
+
+
+```{r, eval = F}
+confint_1b <- confint(floodreg_1b, parm = c("wetland_ha"), level = 0.95)
+data.frame(var = "wetland_ha", 
+           estimate = tidy(floodreg_1b)[2, "estimate"],
+ci_l = confint_1b[1,1],
+ci_u = confint_1b[1,2]
+) %>%
+  ggplot(aes(x = var)) +
+  geom_point(aes(y = estimate)) +
+  geom_linerange(aes(ymin = ci_l, ymax = ci_u)) +
+  geom_hline(aes(yintercept = 0), linetype = "longdash") +
+  lims(y = c(0,10)) +
+  labs(y = "Coefficient (Claims $/Ha)", x = NULL) +
+  theme_minimal()
+```
+
+
+---
+
+# Plotting Regression Coefficients 
+
+`tidy()` and `confint()` make it easy to .hi-medgrn[plot regression output] rather than report in a table.
+
+```{r, echo = F}
+confint_1b <- confint(floodreg_1b, parm = c("wetland_ha"), level = 0.95)
+data.frame(var = "wetland_ha", 
+           estimate = tidy(floodreg_1b)[2, "estimate"],
+ci_l = confint_1b[1,1],
+ci_u = confint_1b[1,2]
+) %>%
+  ggplot(aes(x = var)) +
+  geom_point(aes(y = estimate)) +
+  geom_linerange(aes(ymin = ci_l, ymax = ci_u)) +
+  geom_hline(aes(yintercept = 0), linetype = "longdash") +
+  lims(y = c(0,10)) +
+  labs(y = "Coefficient (Claims $/Ha)", x = NULL) +
+  theme_minimal()
+```
+
 ---
 # Fast Fixed Effects Regression
 
