@@ -135,10 +135,10 @@ Part 3 ([html](https://github.com/afre-msu/AFRE-891-991-FS25/blob/3270be54c883b5
  * Event Study and Dynamic Treatment Effects
 
 
- [**Lecture 9: Synthetic Control Methods**]()
+ [**Lecture 9: Synthetic Control Methods**](https://github.com/afre-msu/AFRE-891-991-FS25/tree/6641f15707be439442f17ad9b34da2276df99a3f/Lecture%20Slides/09-Synthetic)
  
  
- Part 1 ([html]()) ([pdf]())
+ Part 1 ([html](https://github.com/afre-msu/AFRE-891-991-FS25/blob/6641f15707be439442f17ad9b34da2276df99a3f/Lecture%20Slides/09-Synthetic/09-Synthetic-Pt1.html)) ([pdf](https://github.com/afre-msu/AFRE-891-991-FS25/blob/6641f15707be439442f17ad9b34da2276df99a3f/Lecture%20Slides/09-Synthetic/09-Synthetic-Pt1.pdf))
  * Matching
  * Canonical Synthetic Control Method (SCM)
 
