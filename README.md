@@ -128,7 +128,7 @@ Part 3 ([html](https://github.com/afre-msu/AFRE-891-991-FS25/blob/3270be54c883b5
  * (Programmatic) Formulas
  * Standard Errors
 
- Part 2 ([html]()) ([pdf]())
+ Part 2 ([html](https://github.com/afre-msu/AFRE-891-991-FS25/blob/a5ad13e22947e6fa4514d1d3b9e4fa4bf0917a18/Lecture%20Slides/08-Regression/08-Regression-Pt2.html)) ([pdf](https://github.com/afre-msu/AFRE-891-991-FS25/blob/a5ad13e22947e6fa4514d1d3b9e4fa4bf0917a18/Lecture%20Slides/08-Regression/08-Regression-Pt2.pdf))
  * Regression Output
  * IV Regression
  * Difference-in-Differences
