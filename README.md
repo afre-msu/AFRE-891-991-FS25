@@ -149,19 +149,19 @@ Part 3 ([html](https://github.com/afre-msu/AFRE-891-991-FS25/blob/3270be54c883b5
 
  [**Lecture 10: Spatial Data**]()
  
-  Intro to Spatial Data ([html]()) ([pdf]())
+  Intro to Spatial Data ([html](https://github.com/afre-msu/AFRE-891-991-FS25/blob/b356c770731314b6f47f6b68727c245b2060f870/Lecture%20Slides/10-Spatial/Spatial-Intro.html)) ([pdf](https://github.com/afre-msu/AFRE-891-991-FS25/blob/b356c770731314b6f47f6b68727c245b2060f870/Lecture%20Slides/10-Spatial/Spatial-Intro.pdf))
  * Intro to Spatial Data in R and the sf package
  * Quick Mapping
  * Reference Systems and Projections
 
- Part 2: Vector Data ([html]()) ([pdf]())
+ Part 2: Vector Data ([html](https://github.com/afre-msu/AFRE-891-991-FS25/blob/b356c770731314b6f47f6b68727c245b2060f870/Lecture%20Slides/10-Spatial/Spatial-Vector.html)) ([pdf](https://github.com/afre-msu/AFRE-891-991-FS25/blob/b356c770731314b6f47f6b68727c245b2060f870/Lecture%20Slides/10-Spatial/Spatial-Vector.pdf))
  * Working with Vector Data
   * Spatial Queries: Measurement
   * Spatial Queries: Relationship
   * Geometric Operations
   * Spatial Joins
 
-Part 3: Raster  Data ([html]()) ([pdf]())
+Part 3: Raster  Data ([html](https://github.com/afre-msu/AFRE-891-991-FS25/blob/b356c770731314b6f47f6b68727c245b2060f870/Lecture%20Slides/10-Spatial/Spatial-Raster.html)) ([pdf](https://github.com/afre-msu/AFRE-891-991-FS25/blob/b356c770731314b6f47f6b68727c245b2060f870/Lecture%20Slides/10-Spatial/Spatial-Raster.pdf))
  * Intro to Raster Data
  * Common Raster Data
  * Raster Operations
@@ -173,22 +173,20 @@ Part 4 (Time Permitting): Spatial Regression
  * Spatial Regression Models
  * Choosing the Right Model
 
- [**Lecture 11: Machine Learning**]()
+ [**Lecture 11: Machine Learning**](https://github.com/afre-msu/AFRE-891-991-FS25/tree/b356c770731314b6f47f6b68727c245b2060f870/Lecture%20Slides/11-ML)
 
- Part 1: A Primer on Machine Learning ([html]()) ([pdf]())
+ Part 1: A Primer on Machine Learning ([html](https://github.com/afre-msu/AFRE-891-991-FS25/blob/b356c770731314b6f47f6b68727c245b2060f870/Lecture%20Slides/11-ML/ML-Intro.html)) ([pdf](https://github.com/afre-msu/AFRE-891-991-FS25/blob/b356c770731314b6f47f6b68727c245b2060f870/Lecture%20Slides/11-ML/ML-Intro.pdf))
  * Intro to Machine Learning
  * Resampling
 
-  Part 2: Classification and Selection Methods ([html]()) ([pdf]())
- * Machine Learning for Classification
- * Model Selection and Regularization
-
- * Part 3: Trees ([html]()) ([pdf]())
+ * Part 2: Trees ([html](https://github.com/afre-msu/AFRE-891-991-FS25/blob/b356c770731314b6f47f6b68727c245b2060f870/Lecture%20Slides/11-ML/ML-Trees.html)) ([pdf](https://github.com/afre-msu/AFRE-891-991-FS25/blob/b356c770731314b6f47f6b68727c245b2060f870/Lecture%20Slides/11-ML/ML-Trees.pdf))
  * Trees and Forests
  * Machine Learning for Causal Treatment Effect Estimation
 
- * Part 4 (time permitting): Deep Learning  ([html]()) ([pdf]())
- * Deep Learning 
+ * Part 3 (Not Covered): Classification and Selection Methods ([html]()) ([pdf]())
+ * Machine Learning for Classification
+ * Model Selection and Regularization
+
 
 
  [**Lecture 12: Big Data Tools (Time Permitting)**]()
