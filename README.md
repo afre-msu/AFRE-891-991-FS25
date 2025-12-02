@@ -154,7 +154,7 @@ Part 3 ([html](https://github.com/afre-msu/AFRE-891-991-FS25/blob/3270be54c883b5
  * Quick Mapping
  * Reference Systems and Projections
 
- Part 2: Vector Data ([html](https://github.com/afre-msu/AFRE-891-991-FS25/blob/b356c770731314b6f47f6b68727c245b2060f870/Lecture%20Slides/10-Spatial/Spatial-Vector.html)) ([pdf](https://github.com/afre-msu/AFRE-891-991-FS25/blob/b356c770731314b6f47f6b68727c245b2060f870/Lecture%20Slides/10-Spatial/Spatial-Vector.pdf))
+Part 2: Vector Data ([html](https://github.com/afre-msu/AFRE-891-991-FS25/blob/b356c770731314b6f47f6b68727c245b2060f870/Lecture%20Slides/10-Spatial/Spatial-Vector.html)) ([pdf](https://github.com/afre-msu/AFRE-891-991-FS25/blob/b356c770731314b6f47f6b68727c245b2060f870/Lecture%20Slides/10-Spatial/Spatial-Vector.pdf))
  * Working with Vector Data
   * Spatial Queries: Measurement
   * Spatial Queries: Relationship
@@ -179,11 +179,11 @@ Part 4 (Time Permitting): Spatial Regression
  * Intro to Machine Learning
  * Resampling
 
- * Part 2: Trees ([html](https://github.com/afre-msu/AFRE-891-991-FS25/blob/b356c770731314b6f47f6b68727c245b2060f870/Lecture%20Slides/11-ML/ML-Trees.html)) ([pdf](https://github.com/afre-msu/AFRE-891-991-FS25/blob/b356c770731314b6f47f6b68727c245b2060f870/Lecture%20Slides/11-ML/ML-Trees.pdf))
+Part 2: Trees ([html](https://github.com/afre-msu/AFRE-891-991-FS25/blob/b356c770731314b6f47f6b68727c245b2060f870/Lecture%20Slides/11-ML/ML-Trees.html)) ([pdf](https://github.com/afre-msu/AFRE-891-991-FS25/blob/b356c770731314b6f47f6b68727c245b2060f870/Lecture%20Slides/11-ML/ML-Trees.pdf))
  * Trees and Forests
  * Machine Learning for Causal Treatment Effect Estimation
 
- * Part 3 (Not Covered): Classification and Selection Methods ([html]()) ([pdf]())
+Part 3 (Not Covered): Classification and Selection Methods ([html]()) ([pdf]())
  * Machine Learning for Classification
  * Model Selection and Regularization
 
